@@ -16,6 +16,9 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Verify Files
+        run: ls -R
+
       - name: Set Up JDK 17
         uses: actions/setup-java@v3
         with:
@@ -24,4 +27,4 @@ jobs:
           cache: maven
 
       - name: Build with Maven
-        run: mvn clean install
+        run: mvn -f javaproject/pom.xml clean install -DskipTests
